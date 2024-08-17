@@ -1,0 +1,42 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Style pour le bandeau */
+.bandeau {
+    background-color: #4CAF50; /* Couleur du bandeau */
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 24px;
+}
+
+/* Container pour les cadres */
+.container {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px;
+}
+
+/* Grand cadre */
+.grand-cadre {
+    width: 1200px;
+    height: 600px;
+    background-color: #f2f2f2; /* Couleur de fond du grand cadre */
+    border: 2px solid #ccc; /* Bordure du grand cadre */
+    box-sizing: border-box;
+    padding: 20px;
+}
+
+/* Petit cadre */
+.petit-cadre {
+    flex-grow: 1;
+    margin-left: 2px;
+    margin-right: 2px;
+    background-color: #e2e2e2; /* Couleur de fond du petit cadre */
+    border: 2px solid #ccc; /* Bordure du petit cadre */
+    height: 600px;
+    padding: 20px;
+    box-sizing: border-box;
+}
