@@ -5,23 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>La Voix du Peuple</title>
     <link rel="shortcut icon" href="./src/image/logodef.png" type="image/x-icon">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
 
     <!-- Bandeau en haut -->
     <div class="bandeau">
-        <img src="./src/image/logodef.png" alt="logo" style="width: auto; height: 50px;">
+        <img src="./images/logodef.png" alt="logo" style="width: auto; height: 50px;">
         
-        <h1>La Voix du Peuple
-        </h1>
+        <h1>La Voix du Peuple</h1>
     </div>
 
     <!-- Cadres -->
     <div class="container">
         <div class="grand-cadre">
-            Grand cadre de 1200 pixels de large
+            <canvas id="cartedumonde" border=3px solid red  width="800" height="500"></canvas>
+            <button id="modifyButton">Modifier les pixels</button>
+            <button id="saveButton">Enregistrer l'image</button>
+            
+            <script src="./js/script.js"></script>
         </div>
         <div class="petit-cadre">
             Petit cadre
