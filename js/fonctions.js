@@ -33,7 +33,7 @@ export function ModifierPixels() {
 
     // for (let i = 0; i < data.length; i += 4) {
     //     // Change les pixels au centre du canvas en rouge
-    //     if (data[i] > 200 && data[i + 1] > 200 && data[i + 2] > 200) {
+    //     if (data[i] = 255 && data[i + 1] > 200 && data[i + 2] > 200) {
     //         data[i] = 255;     // Rouge
     //         data[i + 1] = 0;   // Vert
     //         data[i + 2] = 0;   // Bleu
