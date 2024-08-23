@@ -30,12 +30,12 @@ h1 {
 
 /* Grand cadre */
 .grand-cadre {
-    width: 1200px;
-    height: 600px;
+    width: 1216px;
+    height: 816px;
     background-color: #f2f2f2; /* Couleur de fond du grand cadre */
     border: 2px solid #ccc; /* Bordure du grand cadre */
     box-sizing: border-box;
-    padding: 20px;
+    padding: 4px;
 }
 
 /* Petit cadre */
