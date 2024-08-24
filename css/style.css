@@ -32,7 +32,7 @@ h1 {
 .grand-cadre {
     width: 1216px;
     height: 816px;
-    background-color: #f2f2f2; /* Couleur de fond du grand cadre */
+    background-color: #c2ac82; /* Couleur de fond du grand cadre */
     border: 2px solid #ccc; /* Bordure du grand cadre */
     box-sizing: border-box;
     padding: 4px;
@@ -43,10 +43,10 @@ h1 {
     flex-grow: 1;
     margin-left: 2px;
     margin-right: 2px;
-    background-color: #e2e2e2; /* Couleur de fond du petit cadre */
+    background-color: #c2ac82; /* Couleur de fond du petit cadre */
     border: 2px solid #ccc; /* Bordure du petit cadre */
-    height: 600px;
-    padding: 20px;
+    height: 816px;
+    padding: 4px;
     box-sizing: border-box;
 }
 

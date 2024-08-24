@@ -2,7 +2,6 @@
 import { prenomsMasculinsFrancais, prenomsFemininsFrancais, nomFrancais } from './lists/listsnomsfrancais.js';
 import { canvas } from './fonctions.js';
 
-
 // Définition de la classe Individu
 class Individu {
     constructor(prenom, nom, genre, age, coordx, coordy) {
@@ -17,7 +16,6 @@ class Individu {
         return `Je suis ${this.prenom} ${this.nom}, un ${this.genre === 'M' ? 'homme' : 'femme'} de ${this.age} ans, situé à (${this.coordx}, ${this.coordy}).`;
     }
 }
-
 
 // Générer un individu et ses caractéristiques de façon aléatoire
 export function genererIndividu() {
@@ -42,8 +40,6 @@ export function genererIndividu() {
     // Générer des coordonnées aléatoires (ex: entre 0 et 1200 pour x et entre 0 et 800 pour y)
     const coordx = Math.floor(Math.random() * canvas.width + 1);
     const coordy = Math.floor(Math.random() * canvas.height + 1);
-    
-
     
     // Créer une instance d'Individu
     return new Individu(prenom, nom, genre, age, coordx, coordy);
