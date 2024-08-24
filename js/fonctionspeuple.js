@@ -50,6 +50,7 @@ export function genererIndividu() {
 }
 
 export function ajouterIndividusAuTableauDePopulation(tableauDePopulation, nbreIndividus) {
+    console.time('Temps de génération des individus')
     // Ajouter "nbreindividus" individus au tableau de population
         for (let i = 0; i < nbreIndividus; i++) {
     tableauDePopulation.push(genererIndividu());
@@ -57,11 +58,11 @@ export function ajouterIndividusAuTableauDePopulation(tableauDePopulation, nbreI
 
     // Afficher les individus
     tableauDePopulation.forEach(individu => {
-    console.log(individu.sePresenter());
+    // console.log(individu.sePresenter());
     });
 
-    console.log(tableauDePopulation)
-   
+    console.log(tableauDePopulation);
+    console.timeEnd('Temps de génération des individus')
 }
    
 

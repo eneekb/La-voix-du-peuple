@@ -32,7 +32,7 @@ ChargerLaCarteInitiale();
 
 // Événements des boutons (!!la rédaction des 2 boutons n'est pas la même pour pouvoir les appeler au clic)
 modifyButton.addEventListener('click', ModifierPixels);
-generationButton.addEventListener('click', function() { ajouterIndividusAuTableauDePopulation(tableauDePopulationRouge, 2);});
+generationButton.addEventListener('click', function() { ajouterIndividusAuTableauDePopulation(tableauDePopulationRouge, 1000000);});
 updateMapButton.addEventListener('click', mettrelacarteajour);
 
 
