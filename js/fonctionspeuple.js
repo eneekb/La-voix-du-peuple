@@ -38,8 +38,8 @@ export function genererIndividu() {
     const age = Math.floor(Math.random() * 71);
     
     // Générer des coordonnées aléatoires (ex: entre 0 et 1200 pour x et entre 0 et 800 pour y)
-    const coordx = Math.floor(Math.random() * canvas.width + 1);
-    const coordy = Math.floor(Math.random() * canvas.height + 1);
+    const coordx = Math.floor(Math.random() * canvas.width );
+    const coordy = Math.floor(Math.random() * canvas.height );
     
     // Créer une instance d'Individu
     return new Individu(prenom, nom, genre, age, coordx, coordy);
