@@ -1,16 +1,18 @@
 export const canvas = document.getElementById('cartedumonde');
-const ctx = canvas.getContext('2d');
+export const ctx = canvas.getContext('2d');
 
 //Import des variables nécessaires
 import { tableauDePopulationRouge } from './script.js';
 
 // Charger la carte initiale
 export function ChargerLaCarteInitiale() {
+    console.time('ChargerLaCarteInitiale')
     const img = new Image();
     img.src = "images/carte0.png";
     img.onload = function() {
         ctx.drawImage(img, 0, 0, canvas.width, canvas.height);
     };
+    console.timeEnd('ChargerLaCarteInitiale')
 }
 
 // Convertir les données RVBA d'une image en HSLA
@@ -101,7 +103,7 @@ function convertirHslEnRvb(hslData, width, height) {
 
 // Mettre à jour la carte
 export function mettrelacarteajour() {
-
+    console.time('mettrelacarteajour')
     // Démarrer le chronométrage pour mesurer le temps d'exécution
     console.time('Temps d\'exécution de mettrelacarteajour');
 
@@ -136,7 +138,7 @@ export function mettrelacarteajour() {
     ctx.putImageData(newImageData, 0, 0);
 
     // Arrêter le chronométrage et afficher le temps d'exécution
-    console.timeEnd('Temps d\'exécution de mettrelacarteajour');
+    console.timeEnd('mettrelacarteajour');
 };
 
 

@@ -1,6 +1,12 @@
 // Import des variables et fonctions
 import { prenomsMasculinsFrancais, prenomsFemininsFrancais, nomFrancais } from './lists/listsnomsfrancais.js';
 import { canvas } from './fonctions.js';
+import { largeurCarte } from './script.js';
+import { hauteurCarte } from './script.js';
+import { tableauDesEmplacements } from './script.js';
+// import { tableauDesEmplacementsSansEau } from './varglobales.js';
+let tableauDesEmplacementsSansEau;
+
 
 // Définition de la classe Individu
 class Individu {
@@ -17,19 +23,18 @@ class Individu {
     }
 }
 
-// Générer un individu et ses caractéristiques de façon aléatoire
+
+
+// Générer un individu et ses caractéristiques
 export function genererIndividu() {
     // Générer un genre aléatoire
     const genres = ["M", "F"];
     const genre = genres[Math.floor(Math.random() * genres.length)];
     
     // Sélectionner un prénom en fonction du genre
-    let prenom;
-    if (genre === "M") {
-        prenom = prenomsMasculinsFrancais[Math.floor(Math.random() * prenomsMasculinsFrancais.length)];
-    } else {
-        prenom = prenomsFemininsFrancais[Math.floor(Math.random() * prenomsFemininsFrancais.length)];
-    }
+    const prenom = genre === "M"
+        ? prenomsMasculinsFrancais[Math.floor(Math.random() * prenomsMasculinsFrancais.length)]
+        : prenomsFemininsFrancais[Math.floor(Math.random() * prenomsFemininsFrancais.length)];
 
     // Sélectionner un nom de famille
     const nom = nomFrancais[Math.floor(Math.random() * nomFrancais.length)];
@@ -37,30 +42,36 @@ export function genererIndividu() {
     // Générer un âge aléatoire entre 0 et 70
     const age = Math.floor(Math.random() * 71);
     
-    // Générer des coordonnées aléatoires (ex: entre 0 et 1200 pour x et entre 0 et 800 pour y)
-    const coordx = Math.floor(Math.random() * canvas.width );
-    const coordy = Math.floor(Math.random() * canvas.height );
-    
-    // Créer une instance d'Individu
-    return new Individu(prenom, nom, genre, age, coordx, coordy);
+    // Tirer au sort des coordonnées valides
+    let coordonnees = tableauDesEmplacementsSansEau[Math.floor(Math.random() * tableauDesEmplacementsSansEau.length)];
+
+    // Créer une instance d'Individu avec les coordonnées tirées au sort
+    return new Individu(prenom, nom, genre, age, coordonnees.x, coordonnees.y);
 }
 
+
+
+
+
 export function ajouterIndividusAuTableauDePopulation(tableauDePopulation, nbreIndividus) {
-    console.time('Temps de génération des individus')
+    console.time('ajouterIndividusAuTableauDePopulation')
+
+        // Filtrer les coordonnées sans eau à partir de tableauDesEmplacements
+        tableauDesEmplacementsSansEau = tableauDesEmplacements
+        .filter(emplacement => emplacement.type !== 'eau')
+        .map(emplacement => emplacement.coordonnees);
+
     // Ajouter "nbreindividus" individus au tableau de population
         for (let i = 0; i < nbreIndividus; i++) {
     tableauDePopulation.push(genererIndividu());
     };
 
-    // Afficher les individus
-    tableauDePopulation.forEach(individu => {
+    // // Afficher les individus
+    // tableauDePopulation.forEach(individu => {
     // console.log(individu.sePresenter());
-    });
+    // });
 
-    console.log(tableauDePopulation);
-    console.timeEnd('Temps de génération des individus')
+    console.timeEnd('ajouterIndividusAuTableauDePopulation')
 }
    
-
-
 
