@@ -1,6 +1,10 @@
 export const canvas = document.getElementById('cartedumonde');
 export const ctx = canvas.getContext('2d');
 
+// Import des fonctions nécessaires
+import { ajouterIndividusAuTableauDePopulation } from './fonctionspeuple.js';
+import { attendre } from './fonctionsutiles.js';
+
 //Import des variables nécessaires
 import { tableauDePopulationRouge } from './script.js';
 
@@ -104,8 +108,6 @@ function convertirHslEnRvb(hslData, width, height) {
 // Mettre à jour la carte
 export function mettrelacarteajour() {
     console.time('mettrelacarteajour')
-    // Démarrer le chronométrage pour mesurer le temps d'exécution
-    console.time('Temps d\'exécution de mettrelacarteajour');
 
     // Obtenir les données de l'image une seule fois
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -142,4 +144,12 @@ export function mettrelacarteajour() {
 };
 
 
+// Fonction pour lancer la simulation
+export async function lancerSimulation(nbRepetitions, tpsAttente, nbIndividus) {
+    for (let i = 0; i < nbRepetitions; i++) {
+        ajouterIndividusAuTableauDePopulation(tableauDePopulationRouge, nbIndividus);
+        mettrelacarteajour();
+        await attendre(tpsAttente); // attendre le temps spécifié
+    }
+}
 

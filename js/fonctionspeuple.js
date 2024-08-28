@@ -1,8 +1,5 @@
 // Import des variables et fonctions
 import { prenomsMasculinsFrancais, prenomsFemininsFrancais, nomFrancais } from './lists/listsnomsfrancais.js';
-import { canvas } from './fonctions.js';
-import { largeurCarte } from './script.js';
-import { hauteurCarte } from './script.js';
 import { tableauDesEmplacements } from './script.js';
 // import { tableauDesEmplacementsSansEau } from './varglobales.js';
 let tableauDesEmplacementsSansEau;

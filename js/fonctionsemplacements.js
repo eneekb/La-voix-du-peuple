@@ -1,11 +1,11 @@
 import { largeurCarte } from "./script.js";
 import { hauteurCarte } from "./script.js";
-// import { tableauDesEmplacementsSansEau } from "./varglobales.js";
+import { tableauDesEmplacements } from "./script.js";
 
 // Initialiser le tableau des emplacements
 export function initialiserLeTaleauDesEmplacements() {
     console.time("initialiserLeTableauDesEmplacements");
-    const tableauDesEmplacements = [];
+    // const tableauDesEmplacements = [];
     let numeroEmplacement = 0;
 
     // Créer un canvas temporaire pour charger l'image de la carte
