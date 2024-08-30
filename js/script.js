@@ -21,17 +21,19 @@ import { canvas } from './fonctions.js';
 
 // Lancement du jeu
 ChargerLaCarteInitiale();
-
 tableauDesEmplacements = initialiserLeTaleauDesEmplacements();
 
 
-
 // Événements des boutons (!!la rédaction des 2 boutons n'est pas la même pour pouvoir les appeler au clic)
-generationButton.addEventListener('click', function() { ajouterIndividusAuTableauDePopulation(tableauDePopulationRouge, 1000);});
+generationButton.addEventListener('click', function() { ajouterIndividusAuTableauDePopulation(tableauDePopulationRouge, 50);});
 updateMapButton.addEventListener('click', mettrelacarteajour);
 startSimulationButton.addEventListener('click', function() {
-    lancerSimulation(10, 1000, 100000); // Nbre de répétitions, tps d'attente entre les répétitions, nbre d'individus à chaque répétition
+    lancerSimulation(1, 10, 1000000); // Nbre de répétitions, tps d'attente entre les répétitions, nbre d'individus à chaque répétition
 });
+
+
+
+
 
 
 

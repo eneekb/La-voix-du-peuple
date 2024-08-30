@@ -109,10 +109,11 @@ function convertirHslEnRvb(hslData, width, height) {
 export function mettrelacarteajour() {
     console.time('mettrelacarteajour')
 
-    // Obtenir les données de l'image une seule fois
+    // Obtenir les données de l'image et créer une copie de l'image de base
     const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+    const imageDataCopy = new ImageData(new Uint8ClampedArray(imageData.data), imageData.width, imageData.height);
 
-    let imageDataHsl = convertirRvbEnHsl(imageData);
+    let imageDataHsl = convertirRvbEnHsl(imageDataCopy);
     let data = imageDataHsl; // Travailler avec les données HSL
 
     // Parcourir chaque individu dans la population
