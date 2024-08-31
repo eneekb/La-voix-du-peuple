@@ -150,6 +150,7 @@ export async function lancerSimulation(nbRepetitions, tpsAttente, nbIndividus) {
     for (let i = 0; i < nbRepetitions; i++) {
         ajouterIndividusAuTableauDePopulation(tableauDePopulationRouge, nbIndividus);
         mettrelacarteajour();
+        console.log("population totale", tableauDePopulationRouge.length);
         await attendre(tpsAttente); // attendre le temps spécifié
     }
 }

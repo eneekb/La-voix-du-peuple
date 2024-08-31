@@ -64,7 +64,7 @@ import { tableauDesEmplacements } from "./script.js";
 //     return tableauDesEmplacements;
 // }
 
-export function initialiserLeTaleauDesEmplacements() {
+export async function initialiserLeTaleauDesEmplacements() {
     console.time("initialiserLeTableauDesEmplacements");
     let numeroEmplacement = 0;
 
@@ -80,8 +80,18 @@ export function initialiserLeTaleauDesEmplacements() {
     const imgAttractivite = new Image();
     imgAttractivite.src = "images/carteattractivite.png"; // Image pour déterminer les scores d'attractivité
 
-    imgType.onload = function() {
-        imgAttractivite.onload = function() {
+    // imgType.onload = function() {
+    //     imgAttractivite.onload = function() {
+    // Utiliser des promesses pour charger les images
+    await new Promise((resolve) => {
+        imgType.onload = resolve;
+    });
+
+    await new Promise((resolve) => {
+        imgAttractivite.onload = resolve;
+    });
+
+    // À ce point, les deux images sont complètement chargées
             // Ajuster la taille des canvas temporaires à la taille des images
             tempCanvasType.width = imgType.width;
             tempCanvasType.height = imgType.height;
@@ -93,8 +103,8 @@ export function initialiserLeTaleauDesEmplacements() {
             tempCtxAttractivite.drawImage(imgAttractivite, 0, 0);
 
             // Initialiser chaque type dans le tableau des emplacements
-            for (let x = 0; x < largeurCarte; x++) {
-                for (let y = 0; y < hauteurCarte; y++) {
+            for (let y = 0; y < hauteurCarte; y++) {
+                for (let x = 0; x < largeurCarte; x++) {
                     // Récupérer les données de couleur du pixel correspondant à l'emplacement sur l'image de type
                     const pixelDataType = tempCtxType.getImageData(x, y, 1, 1).data;
                     const couleur = `rgb(${pixelDataType[0]}, ${pixelDataType[1]}, ${pixelDataType[2]})`;
@@ -116,7 +126,7 @@ export function initialiserLeTaleauDesEmplacements() {
                     }
 
                     // Calculer le score d'attractivité en fonction de la composante rouge sur l'image carteattractivité
-                    let scoreAttractivite = rougeAttractivite/1;  // Plus le rouge est intense, plus le score est élevé
+                    let scoreAttractivite = rougeAttractivite/10;  // Plus le rouge est intense, plus le score est élevé
 
                     // Créer un objet pour chaque emplacement
                     const emplacement = {
@@ -125,19 +135,16 @@ export function initialiserLeTaleauDesEmplacements() {
                         type: type,
                         scoreAttractivite: scoreAttractivite
                     };
+// console.log(emplacement);
 
                     // Ajouter l'objet au tableau
                     tableauDesEmplacements.push(emplacement);
-
+// console.log(tableauDesEmplacements.length);
                     // Incrémenter le numéro de l'emplacement
                     numeroEmplacement++;
                 }
             }
-
             console.timeEnd("initialiserLeTableauDesEmplacements");
-        };
-    };
-
     return tableauDesEmplacements;
 }
 
