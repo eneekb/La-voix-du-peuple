@@ -124,11 +124,11 @@ export function mettrelacarteajour() {
         // Calculer l'index dans le tableau de données d'image
         const index = (y * canvas.width + x) * 4;
 
-        // Modifier les composantes HSL (Colorer le pixel en rouge si il n'était pas rouge, sinon diminuer sa luminosité)
+        // Modifier les composantes HSL (Si le pixel est rouge, baisser sa luninosité, sinon mettre sa luminosité à 95. Dans tous les cas, le colorer en rouge)
         if(data[index] === 360) {
-            data[index + 2] = Math.max(data[index + 2] - 10, 10);
+            data[index + 2] = Math.max(data[index + 2] - 1, 0);
         } else {
-            data[index + 2] = 80
+            data[index + 2] = 95
         }
         data[index] = 360;
         data[index + 1] = 100;
